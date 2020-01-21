@@ -15,10 +15,18 @@ public class RewardsCalculatorImpl implements RewardsCalculatorService{
 	RewardsCalculatorRepository rewardsCalculatorRepository;
 	
 	public List<RewardsCalculatorEntity> calculateRewards() {
-		List<RewardsCalculatorEntity> rewardCalculatorEntity = rewardsCalculatorRepository.findAll();
-		
-		return null;
-		
+		List<RewardsCalculatorEntity> transactions = rewardsCalculatorRepository.findAll();
+		int rewards = 0;
+		transactions.map(transaction => {
+		  if (transaction > 100) {
+		    int amountForRewards = transaction - 100;
+		    rewards += amountForRewards*2 + 50;
+		  } else if (transaction > 50) {
+	            int amountForRewards = transaction - 50;
+		    rewards += amountForRewards;
+		  }
+		});
+		    return rewards;
 	}
 
 }
