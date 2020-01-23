@@ -21,7 +21,7 @@ public class RewardsCalculatorEntity {
 	private String customerId;
 	
 	@Column(name = "AMOUNT")
-	private String amount;
+	private int amount;
 	
 	@Column(name= "TRANS_DATE")
 	private String transactionDate;
